@@ -4,15 +4,11 @@ flechas, marcar una caja con dos clics y guardar un vídeo nuevo donde cada
 frame lleva la última caja marcada hasta ese momento.
 """
 
-from pathlib import Path
-
 import cv2
 from cv2.typing import MatLike
 
-HERE = Path(__file__).parent
-INPUT_PATH = str(HERE / "assets" / "dog.mp4")
-OUTPUTS_DIR = HERE / "outputs"
-OUTPUT_PATH = str(OUTPUTS_DIR / f"{Path(__file__).stem}.mp4")
+INPUT_PATH = "dog.mp4"
+OUTPUT_PATH = "09_output.mp4"
 
 VIDEO_WINDOW = "video"
 
@@ -187,7 +183,6 @@ def save_labeled_video(video: cv2.VideoCapture, labels: dict[int, Box]) -> None:
     height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
     fps = video.get(cv2.CAP_PROP_FPS) or 30
 
-    OUTPUTS_DIR.mkdir(exist_ok=True)
     writer = cv2.VideoWriter(
         OUTPUT_PATH, cv2.VideoWriter_fourcc(*"mp4v"), fps, (width, height)
     )

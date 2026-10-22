@@ -2,19 +2,13 @@
 Grabar 10 segundos de la cámara en un archivo .avi sin comprimir (I420).
 """
 
-from pathlib import Path
-
 import cv2
 
-HERE = Path(__file__).parent
-
 CAMERA = 0  # 0 is the built-in camera; an external USB camera is usually 1.
-OUTPUTS_DIR = HERE / "outputs"
-OUTPUT_PATH = str(OUTPUTS_DIR / f"{Path(__file__).stem}.avi")
+OUTPUT_PATH = "05_output.avi"
 
 
 def main():
-    OUTPUTS_DIR.mkdir(exist_ok=True)
     camera_capture = cv2.VideoCapture(CAMERA)
     fps = 30  # An assumption
     size = (

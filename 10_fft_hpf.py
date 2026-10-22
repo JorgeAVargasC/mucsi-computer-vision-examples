@@ -4,13 +4,11 @@ aplicar un filtro paso alto (HPF) poniendo a cero las frecuencias bajas
 del centro. Lo que queda son los bordes.
 """
 
-from pathlib import Path
-
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-CAT_PATH = str(Path(__file__).parent / "assets" / "cat.jpg")
+CAT_PATH = "cat.jpg"
 
 
 def main() -> None:

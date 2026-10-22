@@ -4,13 +4,11 @@ aplicar un filtro paso bajo (LPF) con una máscara que solo deja pasar las
 frecuencias bajas del centro. El resultado es la imagen desenfocada.
 """
 
-from pathlib import Path
-
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-CAT_PATH = str(Path(__file__).parent / "assets" / "cat.jpg")
+CAT_PATH = "cat.jpg"
 
 
 def main() -> None:

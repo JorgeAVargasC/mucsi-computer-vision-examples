@@ -1,15 +1,12 @@
 """
 Leer la misma imagen con los tres modos de cv2.imread (color, gris y sin
-cambios), comparar sus canales y guardar los resultados en outputs/.
+cambios), comparar sus canales y guardar los resultados como 02_output_*.png.
 """
-
-from pathlib import Path
 
 import cv2
 
-HERE = Path(__file__).parent
-CAT_PATH = str(HERE / "assets" / "cat.jpg")
-OUTPUTS_DIR = HERE / "outputs" / Path(__file__).stem
+CAT_PATH = "cat.jpg"
+OUTPUT_PREFIX = "02_output_"
 
 
 def show_image(title, img):
@@ -19,8 +16,7 @@ def show_image(title, img):
 
 
 def save(name, img):
-    OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
-    cv2.imwrite(str(OUTPUTS_DIR / name), img)
+    cv2.imwrite(OUTPUT_PREFIX + name, img)
     print(f"SAVED {name}")
 
 

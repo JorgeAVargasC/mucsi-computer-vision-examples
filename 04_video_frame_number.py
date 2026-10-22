@@ -3,18 +3,13 @@ Leer un vídeo frame a frame con cv2.VideoCapture, escribir el número de
 cada frame en el centro y guardarlo con cv2.VideoWriter.
 """
 
-from pathlib import Path
-
 import cv2
 
-HERE = Path(__file__).parent
-INPUT_PATH = str(HERE / "assets" / "MyInputVid.avi")
-OUTPUTS_DIR = HERE / "outputs"
-OUTPUT_PATH = str(OUTPUTS_DIR / f"{Path(__file__).stem}.mp4")
+INPUT_PATH = "MyInputVid.avi"
+OUTPUT_PATH = "04_output.mp4"
 
 
 def main():
-    OUTPUTS_DIR.mkdir(exist_ok=True)
     video_capture = cv2.VideoCapture(INPUT_PATH)
 
     fps = video_capture.get(cv2.CAP_PROP_FPS)

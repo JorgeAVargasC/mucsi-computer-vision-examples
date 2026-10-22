@@ -3,13 +3,11 @@ Filtros paso alto (HPF) en el dominio espacial: convolución con kernels de
 3x3 y 5x5, y HPF restando a la imagen su versión desenfocada (Gaussian).
 """
 
-from pathlib import Path
-
 import cv2
 import numpy as np
 from scipy import ndimage
 
-IMG_PATH = str(Path(__file__).parent / "assets" / "statue_small.jpg")
+IMG_PATH = "statue_small.jpg"
 
 
 def main() -> None:

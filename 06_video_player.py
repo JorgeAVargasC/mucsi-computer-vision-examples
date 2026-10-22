@@ -3,14 +3,10 @@ Reproductor de vídeo con teclado: pausar/reanudar, guardar el frame actual
 como imagen y salir.
 """
 
-from pathlib import Path
-
 import cv2
 
-HERE = Path(__file__).parent
-
-VIDEO_PATH = str(HERE / "assets" / "MyInputVid.avi")
-OUTPUTS_DIR = HERE / "outputs" / Path(__file__).stem
+VIDEO_PATH = "MyInputVid.avi"
+OUTPUT_PREFIX = "06_output_"
 
 MAX_DISPLAY_WIDTH = 320
 
@@ -47,9 +43,8 @@ def main():
         if key == KEY_SPACE:
             paused = not paused
         if key == KEY_SAVE:
-            OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
-            path = OUTPUTS_DIR / f"frame_{saved_count:04d}.png"
-            cv2.imwrite(str(path), frame)
+            path = f"{OUTPUT_PREFIX}frame_{saved_count:04d}.png"
+            cv2.imwrite(path, frame)
             saved_count += 1
             print(f"Saved {path}")
 

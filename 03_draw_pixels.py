@@ -4,11 +4,9 @@ diagonal y un coseno sobre ella.
 """
 
 import math
-from pathlib import Path
-
 import cv2
 
-CAT_PATH = str(Path(__file__).parent / "assets" / "cat.jpg")
+CAT_PATH = "cat.jpg"
 
 # COLORS IN BGR
 GREEN = (0, 255, 0)

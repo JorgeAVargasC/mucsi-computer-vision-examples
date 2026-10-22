@@ -4,8 +4,6 @@ del vídeo y escribir un vídeo nuevo con esas regiones pintadas encima.
 Las líneas se pintan a mano, píxel a píxel, sin usar cv2.line.
 """
 
-from pathlib import Path
-
 import cv2
 import numpy as np
 
@@ -13,11 +11,9 @@ import numpy as np
 GREEN = (0, 255, 0)
 RED = (0, 0, 255)
 
-HERE = Path(__file__).parent
 
-INPUT_PATH = str(HERE / "assets" / "MyInputVid.avi")
-OUTPUTS_DIR = HERE / "outputs"
-OUTPUT_PATH = str(OUTPUTS_DIR / f"{Path(__file__).stem}.mp4")
+INPUT_PATH = "MyInputVid.avi"
+OUTPUT_PATH = "08_output.mp4"
 
 WINDOW_NAME = "MyWindow"
 MAX_DISPLAY_HEIGHT = 720
@@ -96,7 +92,6 @@ def _open_video(path):
 
 
 def _create_video_writer(fps, width, height):
-    OUTPUTS_DIR.mkdir(exist_ok=True)
     return cv2.VideoWriter(
         OUTPUT_PATH,
         cv2.VideoWriter_fourcc(*"mp4v"),  # Compressed codec (I420 is raw).
